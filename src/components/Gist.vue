@@ -11,7 +11,11 @@ export default {
     id: {
       type: String,
       required: true
-    }
+    },
+    account: {
+      type: String,
+      required: true
+    }    
   },
 
   data() {
@@ -29,7 +33,7 @@ export default {
       this.html = gist.div
     }
     const script = document.createElement('script')
-    script.src = `https://gist.github.com/egoist/${this.id}.json?callback=gist_callback_${this.id}`
+    script.src = `https://gist.github.com/${this.account}/${this.id}.json?callback=gist_callback_${this.id}`
     document.head.appendChild(script)
   }
 }
